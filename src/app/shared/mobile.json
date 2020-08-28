@@ -1,0 +1,19 @@
+{
+  "mobileData" :[
+    {
+      "name" : "Xiaomi",
+      "model_name": "Note 8 Pro",
+      "description" : "Cheap and Awesome",
+      "imageUrl" : "https://www.reliancedigital.in/medias/Xiaomi-NOTE-8-PRO-Smart-Phones-491615271-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMDI4NDF8aW1hZ2UvanBlZ3xpbWFnZXMvaDZjL2g3ZC85Mjg5NzczOTQwNzY2LmpwZ3xjMWEwZDlhYWY5YmRhOTgwYjUwNTYwNjJiMTkzN2FjNGQwMzA2NjU0ZDc0YmZkNDJkMzY3ZDcyMDc2MmZmODli",
+      "price" : 16999
+    },
+    {
+      "name" : "Samsung",
+      "model_name": "M 30",
+      "description" : "Power Full and Gaming Specialist",
+      "imageUrl" : "https://rukminim1.flixcart.com/image/416/416/kb1470w0/mobile/s/x/f/samsung-galaxy-m30s-sm-m307fzkdinss-original-imafsh7heuaqttfy.jpeg?q=70",
+      "price" : 17600
+    }
+
+  ]
+}

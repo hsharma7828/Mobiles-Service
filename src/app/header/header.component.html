@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" routerLink="/home" style="color: aliceblue;"
+    >Mobile Store</a
+  >
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" style="color: aliceblue;" routerLink="/home"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" style="color: aliceblue;"
+          >Add New <span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="" class="nav-link" style="color: aliceblue;">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color: aliceblue; cursor: pointer;" (click)="onChecked()">
+          Cart <span class="badge badge-info" *ngIf="!isEmpty">{{grandtotal_value}}</span>
+          <ul class="list-group">
+            <a
+              class="list-group-item"
+              style="cursor: pointer;"
+              *ngFor="let item of cart; let i=index">
+            <span *ngIf="!isEmpty">{{item.name+' '+item.model_name+' --> '+(item.price | currency: "INR")}}</span>
+            </a>
+            <p>Total value of cart: {{grandtotal() | currency: "INR"}}</p>
+          </ul>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

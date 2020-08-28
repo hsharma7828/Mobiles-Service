@@ -1,0 +1,53 @@
+<div class="container-fluid" >
+  <div class="row" style="margin-left: 10px;">
+    <div class="col-sm-4" class="d-flex flex-row bd-highlight mb-3">
+      <div
+          class="card"
+          style="width: 18rem; margin: 10px 10px; cursor: pointer; text-align: center;"
+          *ngFor="let mobile of mobiles; let i = index"
+          (click)="onSelected(i)"
+
+        >
+          <img
+            width=50%
+            height="256"
+            style="margin: 0 auto;"
+            [src]="mobile.imageUrl"
+            class="card-img-top"
+            [alt]="mobile.model_name"
+            data-toggle="modal"
+            data-target="#staticBackdrop"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ mobile.name +' '+mobile.model_name}}</h5>
+            <p class="card-text">{{ mobile.description }}</p>
+            <p class="card-text">{{ mobile.price | currency:'INR' }}</p>
+            <a class="btn btn-primary" (click)="onAddtoCart(i)">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf = "index  " class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="padding-left: 185px" id="staticBackdropLabel">{{mobiles[index - 1].name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img [src]="mobiles[index-1].imageUrl" style="max-height: 10%; max-width: 10%;" [alt]="mobiles[index-1].model_name">
+          <p><strong>Model:</strong> {{mobiles[index - 1].model_name}}</p>
+          <p><strong>Description: </strong>{{mobiles[index - 1].description}}</p>
+          <p><strong>Price: </strong>{{mobiles[index - 1].price | currency: 'INR'}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="onAddtoCart(index-1)">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
