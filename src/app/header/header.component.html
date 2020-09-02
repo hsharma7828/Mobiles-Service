@@ -22,7 +22,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" style="color: aliceblue; cursor: pointer;" (click)="onChecked()">
-          Cart <span class="badge badge-info" *ngIf="!isEmpty">{{grandtotal_value}}</span>
+          Cart <span class="badge badge-info" *ngIf="!isEmpty">{{cartlenght}}</span>
           <ul class="list-group">
             <a
               class="list-group-item"
@@ -30,7 +30,7 @@
               *ngFor="let item of cart; let i=index">
             <span *ngIf="!isEmpty">{{item.name+' '+item.model_name+' --> '+(item.price | currency: "INR")}}</span>
             </a>
-            <p>Total value of cart: {{grandtotal() | currency: "INR"}}</p>
+            <!-- <p>Total value of cart: {{grandtotal() | currency: "INR"}}</p> -->
           </ul>
         </a>
       </li>

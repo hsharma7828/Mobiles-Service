@@ -12,22 +12,21 @@ import { MobileModel } from 'src/app/shared/mobile.model';
 })
 export class MobileDetailsComponent implements OnInit {
 
-  id: number;
-  mobile: MobileModel;
-  mobile_subs : Subscription;
-  constructor(private mobileService : MobileService,
-    private route : ActivatedRoute) { }
+  constructor(private mobileService : MobileService) { }
 
-  ngOnInit() {
-    this.mobile_subs = this.route.params
-    .subscribe(
-     (params : Params) => {
-      this.id = +params['id'];
-      this.mobile = this.mobileService.getmobile(this.id);
-     }
-    )
-    console.log(this.mobile);
+  ngOnInit() {}
 
+  grandtotal() {
+  let grandtotal_value = 0;
+   let price = 0;
+   if (this.mobileService.cartItem) {
+
+      this.mobileService.cartItem.forEach(ele => {
+        price = price +  +ele.price
+      })
+      return price;
+    } else{
+      return 0;
     }
-
   }
+}

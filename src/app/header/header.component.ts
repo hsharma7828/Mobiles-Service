@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MobileService } from '../shared/mobile.service';
 import { MobileModel } from '../shared/mobile.model';
@@ -9,11 +9,11 @@ import { MobileModel } from '../shared/mobile.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
+@Output() cartItem = new EventEmitter<MobileModel[]>()
 
   cart:MobileModel[];
   isEmpty = true;
-  grandtotal_value:number;
-  price:number = 0;
+ cartlenght : number;
 
   constructor(private route : ActivatedRoute,
     private mobileService : MobileService) { }
@@ -24,19 +24,9 @@ export class HeaderComponent implements OnInit{
   onChecked() {
     this.isEmpty = false;
     this.cart = this.mobileService.getcartitems();
+    this.cartItem.emit(this.cart);
+    this.cartlenght = this.cart.length;
     }
 
-  grandtotal() {
-    this.grandtotal_value = 0;
-    this.price = 0;
-   if (this.cart) {
-      this.grandtotal_value = this.cart.length;
-      this.cart.forEach(ele => {
-        this.price = this.price +  +ele.price
-      })
-      return this.price;
-    } else{
-      return 0;
-    }
-  }
+
 }

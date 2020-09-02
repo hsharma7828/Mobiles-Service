@@ -3,14 +3,13 @@
     <div class="col-sm-4" class="d-flex flex-row bd-highlight mb-3">
       <div
           class="card"
-          style="width: 18rem; margin: 10px 10px; cursor: pointer; text-align: center;"
+          style="width: 18rem;height: 25rem; margin: 10px 10px; cursor: pointer; text-align: center; background: transparent; padding-top: 4px;"
           *ngFor="let mobile of mobiles; let i = index"
           (click)="onSelected(i)"
-
         >
           <img
-            width=50%
-            height="256"
+            width="50%"
+            height="50%"
             style="margin: 0 auto;"
             [src]="mobile.imageUrl"
             class="card-img-top"
@@ -18,7 +17,7 @@
             data-toggle="modal"
             data-target="#staticBackdrop"
           />
-          <div class="card-body">
+          <div class="card-body" style="color: tomato;">
             <h5 class="card-title">{{ mobile.name +' '+mobile.model_name}}</h5>
             <p class="card-text">{{ mobile.description }}</p>
             <p class="card-text">{{ mobile.price | currency:'INR' }}</p>
@@ -39,7 +38,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <img [src]="mobiles[index-1].imageUrl" style="max-height: 10%; max-width: 10%;" [alt]="mobiles[index-1].model_name">
+          <img [src]="mobiles[index-1].imageUrl" style="max-height: 10%; max-width: 10%; display: block; margin-left: auto; margin-right: auto; width: 50%;" [alt]="mobiles[index-1].model_name">
           <p><strong>Model:</strong> {{mobiles[index - 1].model_name}}</p>
           <p><strong>Description: </strong>{{mobiles[index - 1].description}}</p>
           <p><strong>Price: </strong>{{mobiles[index - 1].price | currency: 'INR'}}</p>
